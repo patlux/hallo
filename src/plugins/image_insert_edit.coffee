@@ -40,12 +40,12 @@
         source: 'URL'
         width: 'Breite'
         height: 'Höhe'
-        alt: 'Alt Text'
-        padding: 'Padding'
-        float: 'Float'
-        float_left: 'Links'
-        float_right: 'Rechts'
-        float_none: 'Nein'
+        alt: 'Bild-Titel'
+        padding: 'Innenabstand'
+        float: 'Positionierung'
+        float_left: 'Links ausrichten'
+        float_right: 'Rechts ausrichten'
+        float_none: 'Keine Ausrichtung'
 
     texts: null
 
@@ -222,6 +222,7 @@
 
         width = if @$image.is('[width]') then @$image.attr('width') else ''
         height = if @$image.is('[height]') then @$image.attr('height') else ''
+
         html = @_property_input_html( 'source',
           @$image.attr('src'), { label: @texts.source } ) +
         @_property_input_html( 'alt',
@@ -244,7 +245,9 @@
             @$image.css('float') == 'none',
             { label: @texts.float_none, row: false } ),
         @texts.float)
+
         $img_properties.html html
+
         $img_properties.show()
       else
         unless @options.insert_file_dialog_ui_url
@@ -313,11 +316,11 @@
 
 
     _property_col_html: (col_html) ->
-      "<div class='hallo_img_property_col'>#{col_html}</div>"
+      "<div class='hallo_img_property_col col-sm-6'>#{col_html}</div>"
 
     _property_row_html: (row_html, label = '') ->
       row_html = @_property_col_html(label) + @_property_col_html(row_html)
-      "<div class='hallo_img_property_row'>#{ row_html }</div>"
+      "<div class='hallo_img_property_row row'>#{ row_html }</div>"
 
     _property_html: (property_html, options = {}) ->
       if options.row == false
@@ -330,11 +333,11 @@
         @_property_row_html(entry, options.label)
 
     _property_input_html: (id, value, options = {}) ->
-      text_field = "<input type='text' id='hallo_img_#{id}' value='#{value}'>"
+      text_field = "<input type='text' class='form-control' id='hallo_img_#{id}' value='#{value}'>"
       @_property_html text_field, options
 
     _property_cb_html: (id, checked, options = {}) ->
       checked_attr = if checked then 'checked=checked' else ''
-      cb = "<input type='checkbox' id='hallo_img_#{id}' #{ checked_attr }'>"
+      cb = "<input type='checkbox' class='form-control' id='hallo_img_#{id}' #{ checked_attr }'>"
       @_property_html cb, options
 ) jQuery
