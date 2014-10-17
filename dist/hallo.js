@@ -302,9 +302,11 @@
       _checkModified: function(event) {
         var widget;
         widget = event.data;
-        if (widget.isModified()) {
-          return widget.setModified();
-        }
+        return setTimeout(function() {
+          if (widget.isModified()) {
+            return widget.setModified();
+          }
+        }, 0);
       },
       _keys: function(event) {
         var old, widget;
@@ -2537,6 +2539,31 @@
         } else {
           return this._findBackgroundColor(jQueryfield.parent());
         }
+      }
+    });
+  })(jQuery);
+
+}).call(this);
+
+(function() {
+  (function(jQuery) {
+    return jQuery.widget('IKS.hallopasteonlyplaintext', {
+      toolbar: null,
+      options: {
+        editable: null,
+        toolbar: null,
+        uuid: ''
+      },
+      _create: function() {
+        return this._bindEvents();
+      },
+      _bindEvents: function() {
+        return this.element.on('paste', function(event, data) {
+          var text;
+          event.preventDefault();
+          text = (event.originalEvent || event).clipboardData.getData('text/plain');
+          return document.execCommand('inserttext', false, text);
+        });
       }
     });
   })(jQuery);
