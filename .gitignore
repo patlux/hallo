@@ -6,4 +6,4 @@ _site/
 dist/hallo-min.js
 bower_components/
 .DS_Store
-dist/
+dist/hallo-min.js
