@@ -80,7 +80,7 @@
         uuid: @options.uuid
         editable: @options.editable
         label: 'block'
-        icon: 'icon-text-height'
+        icon: 'fa-text-height'
         target: target
         cssClass: @options.buttonCssClass
       buttonElement
