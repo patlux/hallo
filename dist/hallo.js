@@ -489,7 +489,7 @@
         buttonHolder = jQuery("<span class=\"" + this.widgetName + "\"></span>");
         this.button = buttonHolder.hallobutton({
           label: 'Annotate',
-          icon: 'icon-tags',
+          icon: 'fa-tags',
           editable: this.options.editable,
           command: null,
           uuid: this.options.uuid,
@@ -681,7 +681,7 @@
           uuid: this.options.uuid,
           editable: this.options.editable,
           label: 'block',
-          icon: 'icon-text-height',
+          icon: 'fa-text-height',
           target: target,
           cssClass: this.options.buttonCssClass
         });
@@ -897,7 +897,7 @@
         $buttonHolder = jQuery('<span>');
         $buttonHolder.hallobutton({
           label: this.texts.title,
-          icon: 'icon-list-alt',
+          icon: 'fa-list-alt',
           editable: this.options.editable,
           command: null,
           queryState: false,
@@ -1018,7 +1018,7 @@
         buttonHolder = jQuery('<span></span>');
         buttonHolder.hallobutton({
           label: 'Images',
-          icon: 'icon-picture',
+          icon: 'fa-picture-o',
           editable: this.options.editable,
           command: null,
           queryState: false,
@@ -1885,7 +1885,7 @@
         $buttonHolder = jQuery('<span>');
         $buttonHolder.hallobutton({
           label: this.texts.title_insert,
-          icon: 'icon-picture',
+          icon: 'fa-picture-o',
           editable: this.options.editable,
           command: null,
           queryState: false,
@@ -2185,7 +2185,7 @@
       populateToolbar: function() {},
       buildIndicator: function() {
         var editButton;
-        editButton = jQuery('<div><i class="icon-edit"></i> Edit</div>');
+        editButton = jQuery('<div><i class="fa fa-edit"></i> Edit</div>');
         editButton.addClass(this.options.className);
         editButton.hide();
         this.element.before(editButton);
@@ -2251,7 +2251,7 @@
             editable: _this.options.editable,
             label: alignment,
             command: "justify" + alignment,
-            icon: "icon-align-" + (alignment.toLowerCase()),
+            icon: "fa-align-" + (alignment.toLowerCase()),
             cssClass: _this.options.buttonCssClass
           });
           return buttonset.append(buttonElement);
@@ -2342,7 +2342,7 @@
           buttonHolder = jQuery('<span></span>');
           buttonHolder.hallobutton({
             label: 'Link',
-            icon: 'icon-link',
+            icon: 'fa fa-link',
             editable: _this.options.editable,
             command: null,
             queryState: false,
@@ -2428,7 +2428,7 @@
             editable: _this.options.editable,
             label: label,
             command: "insert" + type + "List",
-            icon: "icon-list-" + (label.toLowerCase()),
+            icon: "fa-list-" + (label.toLowerCase()),
             cssClass: _this.options.buttonCssClass
           });
           return buttonset.append(buttonElement);
@@ -2563,7 +2563,7 @@
             uuid: _this.options.uuid,
             editable: _this.options.editable,
             label: label,
-            icon: cmd === 'undo' ? 'icon-undo' : 'icon-repeat',
+            icon: cmd === 'undo' ? 'fa-undo' : 'fa-repeat',
             command: cmd,
             queryState: false,
             cssClass: _this.options.buttonCssClass
@@ -2998,7 +2998,7 @@
         var hoverclass, id, opts, _base,
           _this = this;
         if ((_base = this.options).icon == null) {
-          _base.icon = "icon-" + (this.options.label.toLowerCase());
+          _base.icon = "fa-" + (this.options.label.toLowerCase());
         }
         id = "" + this.options.uuid + "-" + this.options.label;
         opts = this.options;
@@ -3101,7 +3101,7 @@
       _createButton: function(id, command, label, icon) {
         var classes;
         classes = ['ui-button', 'ui-widget', 'ui-state-default', 'ui-corner-all', 'ui-button-text-only', "" + command + "_button"];
-        return jQuery("<button id=\"" + id + "\"        class=\"" + (classes.join(' ')) + "\" title=\"" + label + "\">          <span class=\"ui-button-text\">            <i class=\"" + icon + "\"></i>          </span>        </button>");
+        return jQuery("<button id=\"" + id + "\"        class=\"" + (classes.join(' ')) + "\" title=\"" + label + "\">          <span class=\"ui-button-text\">            <i class=\"fa " + icon + "\"></i>          </span>        </button>");
       }
     });
     return jQuery.widget('IKS.hallobuttonset', {
@@ -3144,7 +3144,7 @@
       },
       _create: function() {
         var _base;
-        return (_base = this.options).icon != null ? (_base = this.options).icon : _base.icon = "icon-" + (this.options.label.toLowerCase());
+        return (_base = this.options).icon != null ? (_base = this.options).icon : _base.icon = "fa-" + (this.options.label.toLowerCase());
       },
       _init: function() {
         var target,
@@ -3196,7 +3196,7 @@
         var buttonEl, classes, id;
         id = "" + this.options.uuid + "-" + this.options.label;
         classes = ['ui-button', 'ui-widget', 'ui-state-default', 'ui-corner-all', 'ui-button-text-only'];
-        buttonEl = jQuery("<button id=\"" + id + "\"       class=\"" + (classes.join(' ')) + "\" title=\"" + this.options.label + "\">       <span class=\"ui-button-text\"><i class=\"" + this.options.icon + "\"></i></span>       </button>");
+        buttonEl = jQuery("<button id=\"" + id + "\"       class=\"" + (classes.join(' ')) + "\" title=\"" + this.options.label + "\">       <span class=\"ui-button-text\"><i class=\"fa " + this.options.icon + "\"></i></span>       </button>");
         if (this.options.cssClass) {
           buttonEl.addClass(this.options.cssClass);
         }
