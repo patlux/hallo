@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="../../bower_components/components-font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="hallo.css" />
+  <title></title>
+</head>
+<body>
+
+    <div class="editable">
+      <p>Hello <a href="http://test.de/">World</a> Test 123</p>
+    </div>
+
+    <script src="../../bower_components/jquery/jquery.min.js"></script>
+    <script src="../../bower_components/jquery-ui/ui/jquery-ui.js"></script>
+    <script src="../../bower_components/rangy/rangy-core.js"></script>
+    <script src="../../dist/hallo-min.js"></script>
+
+    <script>
+      jQuery(function() {
+        jQuery('.editable').hallo({
+          plugins: {
+
+            'hallopasteonlyplaintext': {},
+            'halloformat': {
+              'formattings': {
+                'bold': true,
+                'italic': true
+              }
+            },
+            'halloheadings': {
+              'formatBlocks': [ 'h1', 'h2', 'h3', 'p']
+            },
+            'hallojustify': {},
+            'hallolists': {},
+            'halloreundo': {},
+            'hallo-image-insert-edit': {}
+
+          },
+          editable: true
+        });
+
+      });
+    </script>
+
+</body>
+</html>
